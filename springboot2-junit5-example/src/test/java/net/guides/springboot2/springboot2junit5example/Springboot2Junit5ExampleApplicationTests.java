@@ -1,5 +1,6 @@
 package net.guides.springboot2.springboot2junit5example;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,13 @@ class Springboot2Junit5ExampleApplicationTests {
 	void testMessage() {
 		String message = this.restTemplate.getForObject("/hello", String.class);
 		assertEquals("Hello World", message);
+	}
+	
+	@Test
+	@DisplayName("test Message Not Equals REST API ")
+	void testMessageNotEquals() {
+		String message = this.restTemplate.getForObject("/hello", String.class);
+		assertNotEquals("Hello World1", message);
 	}
 
 }
